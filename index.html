@@ -1,199 +1,89 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <img id="eu" src="eu_pe.png">
-<img id="ela" src="ela_pe.png">
-<button class="camera-btn" id="spotifyBtn">🎵 Conectar Spotify</button>
 <head>
+  
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para Minha Alicia 💖</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
-body{
-    margin:0;
-    background:#f6dede url("fundo.jpg") no-repeat center center fixed;
-    background-size:cover;
-    font-family:'Poppins', sans-serif;
-    color:#4b2e2e;
-    overflow-x:hidden;
-}
-
-/* ===== WINAMP ===== */
-.radio-winamp{
-    width:95%;
-    max-width:700px;
-    margin:30px auto;
-    position:relative;
-}
-.winamp-img{ width:100%; display:block; }
-.btn{ position:absolute; width:8%; height:18%; cursor:pointer; }
-.play{ left:20%; bottom:28%; }
-.pause{ left:29%; bottom:28%; }
-.stop{ left:38%; bottom:28%; }
-
-/* ===== BICHINHOS ===== */
-.decoracao{
+#eu, #ela {
+    width:80px;
+    height:100px;
     position:fixed;
-    width:95px;
-    z-index:50;
-    pointer-events:none;
-    animation:flutuar 4s ease-in-out infinite;
-}
-.b1{ top:10%; left:5%; }
-.b2{ top:60%; right:6%; }
-.b3{ bottom:15%; left:8%; }
-@keyframes flutuar{
-    0%{ transform:translateY(0px); }
-    50%{ transform:translateY(-10px); }
-    100%{ transform:translateY(0px); }
-}
-
-/* ===== RENDAS ===== */
-.renda-topo{ width:100%; height:160px; background:url("renda.png") no-repeat center top; background-size:cover; }
-.renda-base{ width:100%; height:120px; background:url("renda.png") no-repeat center bottom; background-size:cover; transform:rotate(180deg); }
-.renda-esquerda, .renda-direita{ position:fixed; top:0; width:80px; height:100vh; overflow:hidden; z-index:10; }
-.renda-esquerda::before, .renda-direita::before{
-    content:""; position:absolute; top:0; left:0; width:100vh; height:80px; background:url("renda.png") repeat-x; background-size:contain;
-}
-.renda-esquerda::before{ transform:rotate(-90deg); transform-origin:top left; }
-.renda-direita::before{ transform:rotate(90deg); transform-origin:top left; left:-100vh; }
-
-/* ===== CABINE ===== */
-.cabine-wrapper{ position:relative; width:90%; max-width:735px; margin:50px auto; }
-.camera-box{
-    position:relative;
-    background:#ffd6e7;
-    border:8px solid #ff9ec4;
-    border-radius:25px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    z-index:10;
-    box-sizing:border-box;
-    overflow:hidden;
-}
-.camera-box h2{
-    font-family:'Great Vibes', cursive;
-    color:#c26a8c;
-    font-size:28px;
-    margin-bottom:15px;
-}
-.video-container{
-    position:relative;
-    width:100%;
-    border-radius:15px;
-    overflow:hidden;
-}
-video{
-    width:100%;
-    display:block;
-}
-
-/* Filtros */
-.filtro-rosa{
-    position:absolute; top:0; left:0; width:100%; height:100%;
-    pointer-events:none; display:none;
-    background: rgba(255,192,203,0.3);
-    z-index:15;
-}
-.filtro-estrelinhas{
-    position:absolute; top:0; left:0; width:100%; height:100%;
-    pointer-events:none; display:none;
-    z-index:16;
-}
-.estrela{
-    position:absolute;
-    width:60px; height:60px;
-    background:url("estrela.png") no-repeat center/contain;
-    opacity:0.9;
-}
-/* moldura fixa sobre o vídeo */
-.moldura-cabine{
-    position:absolute; top:0; left:0;
-    width:100%; height:100%;
-    object-fit:contain;
-    pointer-events:none;
-    z-index:20;
-}
-/* BOTÕES DE FILTRO */
-.filtros-container{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    margin-top:10px;
-}
-.camera-btn{
-    margin-top:15px;
-    background:#ff9ec4;
-    border:none;
-    padding:10px 20px;
-    border-radius:20px;
-    cursor:pointer;
-    font-weight:bold;
-    color:white;
-    box-shadow:0 5px 0 #c26a8c;
-}
-.camera-btn:active{ transform:translateY(3px); box-shadow:0 2px 0 #c26a8c; }
-
-/* POLAROID */
-.polaroid{
-    width:220px;
-    background:white;
-    padding:10px 10px 30px 10px;
-    margin:20px auto;
-    box-shadow:0 8px 20px rgba(0,0,0,0.3);
-    transform:rotate(-2deg);
-}
-.polaroid img{ width:100%; }
-
-.container{
-    max-width:900px;
-    width:85%;
-    margin:40px auto;
-    background:#fff0f0cc;
-    border:6px solid #4b2e2e;
-    border-radius:25px;
-    padding:25px;
-    box-shadow:0 0 30px #c48f8f;
-}
-h1{ font-family:'Great Vibes', cursive; font-size:42px; text-align:center; color:#c26a8c; }
-
-/* ===== PAINT ===== */
-.paint-container{
-    width:90%;
-    max-width:735px;
-    margin:40px auto;
-    background:#ffe5eccc;
-    border:6px solid #4b2e2e;
-    border-radius:25px;
-    padding:15px;
-    text-align:center;
-    box-shadow:0 0 20px #c48f8f;
-}
-#canvasPaint{
-    width:100%;
-    height:400px;
-    background:white;
+    bottom:20px;
+    cursor:grab;
+    z-index:9999;
+    user-select:none;
     touch-action:none;
+    animation:flutuarShimeji 3s ease-in-out infinite;
 }
-#adesivos-container img{
-    position:absolute;
-    width:60px;
-    height:60px;
-    cursor:pointer;
+
+@keyframes flutuarShimeji{
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
-.paint-btns{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
-    margin-top:10px;
-}
+/* === MESMO CSS QUE VOCÊ JÁ TEM === */
+body{margin:0;background:#f6dede url("fundo.jpg") no-repeat center center fixed;background-size:cover;font-family:'Poppins', sans-serif;color:#4b2e2e;overflow-x:hidden;}
+.radio-winamp{width:95%;max-width:700px;margin:30px auto;position:relative;}
+.winamp-img{width:100%;display:block;}
+.btn{position:absolute;width:8%;height:18%;cursor:pointer;}
+.play{left:20%;bottom:28%;}
+.pause{left:29%;bottom:28%;}
+.stop{left:38%;bottom:28%;}
+.decoracao{position:fixed;width:95px;z-index:50;pointer-events:none;animation:flutuar 4s ease-in-out infinite;}
+.b1{top:10%;left:5%;}
+.b2{top:60%;right:6%;}
+.b3{bottom:15%;left:8%;}
+@keyframes flutuar{0%{transform:translateY(0px);}50%{transform:translateY(-10px);}100%{transform:translateY(0px);}}
+.renda-topo{width:100%;height:160px;background:url("renda.png") no-repeat center top;background-size:cover;}
+.renda-base{width:100%;height:120px;background:url("renda.png") no-repeat center bottom;background-size:cover;transform:rotate(180deg);}
+.renda-esquerda,.renda-direita{position:fixed;top:0;width:80px;height:100vh;overflow:hidden;z-index:10;}
+.renda-esquerda::before,.renda-direita::before{content:"";position:absolute;top:0;left:0;width:100vh;height:80px;background:url("renda.png") repeat-x;background-size:contain;}
+.renda-esquerda::before{transform:rotate(-90deg);transform-origin:top left;}
+.renda-direita::before{transform:rotate(90deg);transform-origin:top left;left:-100vh;}
+.cabine-wrapper{position:relative;width:90%;max-width:735px;margin:50px auto;}
+.camera-box{position:relative;background:#ffd6e7;border:8px solid #ff9ec4;border-radius:25px;padding:20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.2);z-index:10;box-sizing:border-box;overflow:hidden;}
+.camera-box h2{font-family:'Great Vibes', cursive;color:#c26a8c;font-size:28px;margin-bottom:15px;}
+.video-container{position:relative;width:100%;border-radius:15px;overflow:hidden;}
+video{width:100%;display:block;}
+.filtro-rosa{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;display:none;background: rgba(255,192,203,0.3);z-index:15;}
+.filtro-estrelinhas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;display:none;z-index:16;}
+.estrela{position:absolute;width:60px;height:60px;background:url("estrela.png") no-repeat center/contain;opacity:0.9;}
+.moldura-cabine{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;pointer-events:none;z-index:20;}
+.filtros-container{display:flex;justify-content:center;gap:15px;margin-top:10px;}
+.camera-btn{margin-top:15px;background:#ff9ec4;border:none;padding:10px 20px;border-radius:20px;cursor:pointer;font-weight:bold;color:white;box-shadow:0 5px 0 #c26a8c;}
+.camera-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #c26a8c;}
+.polaroid{width:220px;background:white;padding:10px 10px 30px 10px;margin:20px auto;box-shadow:0 8px 20px rgba(0,0,0,0.3);transform:rotate(-2deg);}
+.polaroid img{width:100%;}
+.container{max-width:900px;width:85%;margin:40px auto;background:#fff0f0cc;border:6px solid #4b2e2e;border-radius:25px;padding:25px;box-shadow:0 0 30px #c48f8f;}
+h1{font-family:'Great Vibes', cursive;font-size:42px;text-align:center;color:#c26a8c;}
+.paint-container{width:90%;max-width:735px;margin:40px auto;background:#ffe5eccc;border:6px solid #4b2e2e;border-radius:25px;padding:15px;text-align:center;box-shadow:0 0 20px #c48f8f;}
+#canvasPaint{width:100%;height:400px;background:white;touch-action:none;}
+#adesivos-container img{position:absolute;width:60px;height:60px;cursor:pointer;}
+.paint-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:10px;}
 </style>
 </head>
 <body>
+  <img id="abraco" style="display:none;position:absolute;width:120px;z-index:20;">
 
-<!-- 🎧 WINAMP -->
+<!-- BOTÃO SPOTIFY FIXO NO TOPO -->
+<button class="camera-btn" id="spotifyBtn" style="
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:10000;
+">
+🎵 Abrir Playlist
+</button>
+
+<!-- PERSONAGENS SHIMEJI FIXOS NA BASE -->
+<img id="eu" src="eu_pe.png" style="position:fixed; bottom:20px; left:50px; width:80px; height:100px; z-index:9999; cursor:grab; user-select:none; touch-action:none;" draggable="false">
+<img id="ela" src="ela_pe.png" style="position:fixed; bottom:20px; right:50px; width:80px; height:100px; z-index:9999; cursor:grab; user-select:none; touch-action:none;" draggable="false">
+
+<!-- WINAMP -->
 <div class="radio-winamp">
     <img src="winamp.png" class="winamp-img">
     <div class="btn play"></div>
@@ -215,7 +105,7 @@ h1{ font-family:'Great Vibes', cursive; font-size:42px; text-align:center; color
 <h1>Welcome, Alicia 💖</h1>
 </div>
 
-<!-- 📸 CABINE -->
+<!-- CABINE -->
 <div class="cabine-wrapper">
     <div class="camera-box">
         <h2>Máquina de Fotos 💕</h2>
@@ -237,44 +127,63 @@ h1{ font-family:'Great Vibes', cursive; font-size:42px; text-align:center; color
 
 <!-- PAINT -->
 <div class="paint-container">
-    <h2 style="font-family:'Great Vibes', cursive; color:#c26a8c;">Mini Pintura Interativa 🎨</h2>
-    <div id="paintWrapper" style="position:relative; width:100%; height:400px;">
-        <canvas id="canvasPaint"></canvas>
-        <div id="adesivos-container"></div>
-    </div>
-    <div class="paint-btns">
-        <button class="camera-btn" onclick="limparCanvas()">Limpar 🧹</button>
-        <button class="camera-btn" onclick="mudarCor('pink')">Rosa 💖</button>
-        <button class="camera-btn" onclick="mudarCor('purple')">Roxo 💜</button>
-        <button class="camera-btn" onclick="mudarCor('blue')">Azul 💙</button>
-    </div>
+<h2 style="font-family:'Great Vibes', cursive; color:#c26a8c;">Mini Pintura Interativa 🎨</h2>
+<div id="paintWrapper" style="position:relative; width:100%; height:400px;">
+<canvas id="canvasPaint"></canvas>
+<div id="adesivos-container"></div>
+</div>
+<div class="paint-btns">
+    <button class="camera-btn" onclick="limparCanvas()">Limpar 🧹</button>
+    <button class="camera-btn" onclick="mudarCor('pink')">Rosa 💖</button>
+    <button class="camera-btn" onclick="mudarCor('purple')">Roxo 💜</button>
+    <button class="camera-btn" onclick="mudarCor('blue')">Azul 💙</button>
+</div>
 </div>
 
 <div class="renda-base"></div>
 
+<!-- SPOTIFY POPUP -->
+<button class="camera-btn" id="spotifyBtn">🎵 Abrir Playlist</button>
+<div id="spotifyPopup" style="position:fixed;top:50%;left:50%;transform:translate(-50%, -50%);width:90%;max-width:600px;background:#ff9ec4cc;border:4px solid #c26a8c;border-radius:25px;padding:20px;text-align:center;z-index:10000;display:none;box-shadow:0 5px 20px rgba(0,0,0,0.3);">
+<h2 style="font-family:'Great Vibes', cursive; color:white;">Sua Playlist 🎵</h2>
+<iframe src="https://open.spotify.com/embed/playlist/52EvgvD1RbBoP3gFoXG1xe?utm_source=generator&theme=0" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border-radius:15px; margin-top:10px;" loading="lazy"></iframe>
+<br><br>
+<button id="closeSpotifyPopup" style="background:#c26a8c;color:white;border:none;padding:8px 15px;border-radius:15px;font-weight:bold;cursor:pointer;">Fechar ❌</button>
+</div>
+
 <script>
-  const spotifyBox = document.getElementById('spotifyBox');
-const spotifyLoginBtn = document.getElementById('spotifyLoginBtn');
-const spotifyCloseBtn = document.getElementById('spotifyCloseBtn');
+// ===== VARIÁVEIS SHIMEJIS =====
+const eu = document.getElementById('eu');
+const ela = document.getElementById('ela');
+const abraco = document.getElementById('abraco'); // você precisa adicionar <img id="abraco" style="display:none;position:absolute;width:100px;"> no HTML
 
-spotifyLoginBtn.addEventListener('click', () => {
-    const clientId = 'SEU_CLIENT_ID_DO_SPOTIFY'; // substitua pelo seu ID do Spotify
-    const redirectUri = 'https://seusite.com/callback'; // substitua pelo seu URL de retorno
-    const scope = 'user-read-private user-read-email';
-    const authUrl = `https://accounts.spotify.com/authorize?response_type=token&client_id=${clientId}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
-    
-    // Redireciona o usuário para o Spotify
-    window.location.href = authUrl;
-});
+const imagens = {
+    eu: {pe:'eu_pe.png', feliz:'eu_feliz.png', sentada:'eu_sentada.png'},
+    ela: {pe:'ela_pe.png', feliz:'ela_feliz.png', sentada:'ela_sentada.png'},
+    abracos:['abracando1.png','abracando2.png']
+};
 
-spotifyCloseBtn.addEventListener('click', () => {
-    spotifyBox.style.display = 'none';
-});
+// posições iniciais
+let pos = {
+    eu: {x:50, y:0},
+    ela: {x:300, y:0}
+};
+
+// velocidade aleatória
+function novaVelocidade(){ return (Math.random()*2 + 1); }
+let vel = { eu: novaVelocidade(), ela: novaVelocidade() };
+
+// direção: 1 = direita, -1 = esquerda
+let dir = { eu:1, ela:-1 };
+
+// === VARIÁVEIS DE ARRASTO ===
+let arrastando = { eu: false, ela: false };
+let offset = { eu: {x:0,y:0}, ela: {x:0,y:0} };
+
 // ===== WINAMP =====
 const musicas = ['musica1.mp3','musica2.mp3','musica3.mp3','musica4.mp3'];
 let indexMusica = 0;
 const audio = document.getElementById("player");
-
 document.querySelector(".play").addEventListener("click", ()=>{
     audio.src = musicas[indexMusica];
     audio.play();
@@ -288,17 +197,16 @@ document.querySelector(".stop").addEventListener("click", ()=>{
 
 // ===== CABINE =====
 const video = document.getElementById("video");
-const canvas = document.getElementById("canvas");
-const resultado = document.getElementById("resultado");
 const filtroEstrelinhas = document.getElementById("filtroEstrelinhas");
 const filtroRosa = document.getElementById("filtroRosa");
+const resultado = document.getElementById("resultado");
 navigator.mediaDevices.getUserMedia({ video: true }).then(stream => { video.srcObject = stream; }).catch(()=>{ alert("Permita acesso à câmera 💕"); });
 
 let animandoEstrelas = [];
 function ativarFiltro(tipo){
     filtroEstrelinhas.innerHTML = '';
     animandoEstrelas.forEach(a=>cancelAnimationFrame(a));
-    animandoEstrelas = [];
+    animandoEstrelas=[];
     filtroEstrelinhas.style.display='none';
     filtroRosa.style.display='none';
     if(tipo==='estrelinhas'){ filtroEstrelinhas.style.display='block'; criarEstrelasInfinitas(); }
@@ -342,12 +250,6 @@ function tirarFoto(){
             ctx.drawImage(createEstrelaIMG(), x, y, tempCanvas.width*0.08, tempCanvas.width*0.08);
         });
     }
-    const flash = document.createElement('div');
-    flash.style.position='fixed'; flash.style.top=0; flash.style.left=0;
-    flash.style.width='100%'; flash.style.height='100%';
-    flash.style.background='rgba(255,192,203,0.4)'; flash.style.zIndex=1000;
-    document.body.appendChild(flash);
-    setTimeout(()=>document.body.removeChild(flash),200);
     const imagem = tempCanvas.toDataURL("image/png");
     resultado.innerHTML=`
         <div class="polaroid">
@@ -363,371 +265,457 @@ function createEstrelaIMG(){ const img = new Image(); img.src='estrela.png'; ret
 // ===== PAINT =====
 const canvasPaint = document.getElementById('canvasPaint');
 const ctxPaint = canvasPaint.getContext('2d');
-let corAtual = 'pink';
+let corAtual='pink';
+function ajustarCanvas(){canvasPaint.width=canvasPaint.clientWidth;canvasPaint.height=canvasPaint.clientHeight;}
+ajustarCanvas(); window.addEventListener('resize',ajustarCanvas);
 
-function ajustarCanvas(){
-    canvasPaint.width = canvasPaint.clientWidth;
-    canvasPaint.height = canvasPaint.clientHeight;
-}
-ajustarCanvas();
-window.addEventListener('resize',ajustarCanvas);
-
-let desenhando = false;
-
-canvasPaint.addEventListener('touchstart', e => {
-    desenhando = true;
-    const touch = e.touches[0];
-    const x = touch.clientX - canvasPaint.getBoundingClientRect().left;
-    const y = touch.clientY - canvasPaint.getBoundingClientRect().top;
-    if(x <= canvasPaint.width/2){
-        ctxPaint.beginPath();
-        ctxPaint.moveTo(x,y);
-    } else { desenhando = false; }
-});
-canvasPaint.addEventListener('touchmove', e => {
-    if(!desenhando) return;
-    const touch = e.touches[0];
-    const x = touch.clientX - canvasPaint.getBoundingClientRect().left;
-    const y = touch.clientY - canvasPaint.getBoundingClientRect().top;
-    ctxPaint.lineTo(x,y);
-    ctxPaint.strokeStyle = corAtual;
-    ctxPaint.lineWidth = 4;
-    ctxPaint.lineCap = 'round';
-    ctxPaint.stroke();
-});
-canvasPaint.addEventListener('touchend', e => { desenhando = false; });
-
-function limparCanvas(){ ctxPaint.clearRect(0,0,canvasPaint.width,canvasPaint.height); }
-function mudarCor(cor){ corAtual = cor; }
+let desenhando=false;
+canvasPaint.addEventListener('touchstart', e => {desenhando=true; const t=e.touches[0]; ctxPaint.beginPath(); ctxPaint.moveTo(t.clientX-canvasPaint.getBoundingClientRect().left,t.clientY-canvasPaint.getBoundingClientRect().top);});
+canvasPaint.addEventListener('touchmove', e => {if(!desenhando) return; const t=e.touches[0]; ctxPaint.lineTo(t.clientX-canvasPaint.getBoundingClientRect().left,t.clientY-canvasPaint.getBoundingClientRect().top);ctxPaint.strokeStyle=corAtual;ctxPaint.lineWidth=4;ctxPaint.lineCap='round';ctxPaint.stroke();});
+canvasPaint.addEventListener('touchend',()=>{desenhando=false;});
+function limparCanvas(){ctxPaint.clearRect(0,0,canvasPaint.width,canvasPaint.height);}
+function mudarCor(cor){corAtual=cor;}
 
 // ===== ADESIVOS =====
-const adesivosContainer = document.getElementById('adesivos-container');
-const adesivos = ['adesivo1.png','adesivo2.png','adesivo3.png','adesivo4.png'];
+const adesivosContainer=document.getElementById('adesivos-container');
+const adesivos=['adesivo1.png','adesivo2.png','adesivo3.png','adesivo4.png'];
+function posicionarAdesivos(){adesivosContainer.innerHTML=''; const pad=20; const colunas=2; const linhas=2; const espaco=70; adesivos.forEach((src,i)=>{const img=document.createElement('img'); img.src=src; img.className='adesivo'; const col=i%colunas; const row=Math.floor(i/colunas); img.style.left=canvasPaint.width/2+pad+col*espaco+'px'; img.style.top=pad+row*espaco+'px'; adesivosContainer.appendChild(img); let offsetX=0, offsetY=0, movendo=false; img.addEventListener('touchstart',e=>{movendo=true; offsetX=e.touches[0].clientX-img.offsetLeft; offsetY=e.touches[0].clientY-img.offsetTop;}); img.addEventListener('touchmove',e=>{if(!movendo) return; e.preventDefault(); let x=e.touches[0].clientX-offsetX; let y=e.touches[0].clientY-offsetY; x=Math.max(canvasPaint.width/2,x); x=Math.min(canvasPaint.width-img.width,x); y=Math.max(0,y); y=Math.min(canvasPaint.height-img.height,y); img.style.left=x+'px'; img.style.top=y+'px';}); img.addEventListener('touchend',()=>{movendo=false;});});}
+window.addEventListener('load',()=>{ajustarCanvas(); posicionarAdesivos();});
+window.addEventListener('resize',()=>{ajustarCanvas(); posicionarAdesivos();});
+
+// ===== SPOTIFY POPUP =====
+const spotifyBtn=document.getElementById('spotifyBtn');
+const spotifyPopup=document.getElementById('spotifyPopup');
+const closeBtn=document.getElementById('closeSpotifyPopup');
+spotifyBtn.addEventListener('click',()=>{spotifyPopup.style.display='block';});
+closeBtn.addEventListener('click',()=>{spotifyPopup.style.display='none';});
+// ===== ARRASTAR SHIMEJIS =====
+
+function makeDraggable(el){
+    let offsetX=0, offsetY=0, movendo=false;
+
+    el.addEventListener('touchstart', e=>{
+        movendo=true;
+        const t = e.touches[0];
+        offsetX = t.clientX - el.getBoundingClientRect().left;
+        offsetY = t.clientY - el.getBoundingClientRect().top;
+        el.style.animation='none'; // pausa flutuação enquanto arrasta
+    });
+
+    el.addEventListener('touchmove', e=>{
+        if(!movendo) return;
+        e.preventDefault();
+        const t = e.touches[0];
+        let x = t.clientX - offsetX;
+        let y = t.clientY - offsetY;
+        // limitar à tela
+        x = Math.max(0, Math.min(window.innerWidth - el.offsetWidth, x));
+        y = Math.max(0, Math.min(window.innerHeight - el.offsetHeight, y));
+        el.style.left = x + 'px';
+        el.style.top = y + 'px';
+    });
+
+    el.addEventListener('touchend', ()=>{
+        movendo=false;
+        el.style.animation='flutuarShimeji 3s ease-in-out infinite'; // volta a flutuar
+    });
+}
+
+makeDraggable(document.getElementById('eu'));
+makeDraggable(document.getElementById('ela'));
+</script>
+#eu, #ela {
+    position:fixed;
+    bottom:0;
+    width:80px;
+    height:100px;
+    cursor:pointer;
+    z-index:9999;
+    user-select:none;
+    transition:left 0.3s linear, bottom 0.3s linear;
+}
+shimeji.style.animation = 'none'; // pausar
+if(!paradas[nome]) shimeji.style.animation='flutuarShimeji 3s ease-in-out infinite';
+<script>
+
+const eu = document.getElementById('eu');
+const ela = document.getElementById('ela');
+const abraco = document.getElementById('abraco');
+
+const imagens = {
+  eu: {pe:'eu_pe.png', feliz:'eu_feliz.png', sentada:'eu_sentada.png'},
+  ela: {pe:'ela_pe.png', feliz:'ela_feliz.png', sentada:'ela_sentada.png'},
+  abracos:['abracando1.png','abracando2.png']
+};
+
+let pos = { eu:50, ela:300 };
+let vel = { eu:Math.random()*2+1, ela:Math.random()*2+1 };
+let dir = { eu:1, ela:-1 };
+let paradas = { eu:false, ela:false };
+let arrastando = { eu:false, ela:false };
+let offset = { eu:0, ela:0 };
+
+// Atualiza posições na tela
+function atualizarPosicoes() {
+  eu.style.left = pos.eu+'px';
+  ela.style.left = pos.ela+'px';
+}
+
+// Checa abraço
+function checarAbraco() {
+  if (Math.abs(pos.eu - pos.ela) < 50 && abraco.style.display==='none') {
+    eu.style.display = 'none';
+    ela.style.display = 'none';
+    abraco.src = imagens.abracos[Math.floor(Math.random()*imagens.abracos.length)];
+    abraco.style.left = ((pos.eu + pos.ela)/2)+'px';
+    abraco.style.top = 'calc(100% - 100px)';
+    abraco.style.display = 'block';
+    
+    setTimeout(()=>{
+      abraco.style.display='none';
+      eu.style.display='block';
+      ela.style.display='block';
+      eu.src = imagens.eu.pe;
+      ela.src = imagens.ela.pe;
+    },3000);
+  }
+}
+
+// Movimento automático
+function moverShimejis(){
+  ['eu','ela'].forEach(nome=>{
+    if(paradas[nome] || arrastando[nome]) return;
+    pos[nome] += vel[nome]*dir[nome];
+    if(pos[nome]<=0){ dir[nome]=1; pos[nome]=0; }
+    if(pos[nome]>=window.innerWidth-80){ dir[nome]=-1; pos[nome]=window.innerWidth-80; }
+  });
+  atualizarPosicoes();
+  checarAbraco();
+}
+
+// Tornar arrastáveis
+function tornarArrastavel(shimeji, nome){
+  shimeji.addEventListener('mousedown', e=>{ arrastando[nome]=true; offset[nome]=e.clientX-shimeji.offsetLeft; shimeji.style.animation='none'; });
+  window.addEventListener('mousemove', e=>{
+    if(!arrastando[nome]) return;
+    pos[nome] = e.clientX - offset[nome];
+    pos[nome] = Math.max(0, Math.min(window.innerWidth-80, pos[nome]));
+    atualizarPosicoes();
+    checarAbraco();
+  });
+  window.addEventListener('mouseup', ()=>{ arrastando[nome]=false; shimeji.style.animation='flutuarShimeji 3s ease-in-out infinite'; });
+
+  // Mobile
+  shimeji.addEventListener('touchstart', e=>{ arrastando[nome]=true; offset[nome]=e.touches[0].clientX-shimeji.offsetLeft; shimeji.style.animation='none'; });
+  shimeji.addEventListener('touchmove', e=>{ 
+    if(!arrastando[nome]) return;
+    e.preventDefault();
+    pos[nome] = e.touches[0].clientX - offset[nome];
+    pos[nome] = Math.max(0, Math.min(window.innerWidth-80, pos[nome]));
+    atualizarPosicoes();
+    checarAbraco();
+  });
+  shimeji.addEventListener('touchend', ()=>{ arrastando[nome]=false; shimeji.style.animation='flutuarShimeji 3s ease-in-out infinite'; });
+}
+
+tornarArrastavel(eu,'eu');
+tornarArrastavel(ela,'ela');
+
+setInterval(moverShimejis, 50);
+
+// ====================== WINAMP ======================
+const musicas = ['musica1.mp3','musica2.mp3','musica3.mp3','musica4.mp3'];
+let indexMusica = 0;
+const audio = document.getElementById("player");
+document.querySelector(".play").addEventListener("click", () => { audio.src = musicas[indexMusica]; audio.play(); indexMusica = (indexMusica+1) % musicas.length; });
+document.querySelector(".pause").addEventListener("click", () => audio.pause());
+document.querySelector(".stop").addEventListener("click", () => { audio.pause(); audio.currentTime=0; });
+
+// ====================== CABINE ======================
+const video = document.getElementById("video");
+const filtroEstrelinhas = document.getElementById("filtroEstrelinhas");
+const filtroRosa = document.getElementById("filtroRosa");
+const resultado = document.getElementById("resultado");
+
+navigator.mediaDevices.getUserMedia({ video: true }).then(stream => { video.srcObject = stream; }).catch(()=>{ alert("Permita acesso à câmera 💕"); });
+
+let animandoEstrelas = [];
+
+function ativarFiltro(tipo){
+    filtroEstrelinhas.innerHTML='';
+    animandoEstrelas.forEach(a=>cancelAnimationFrame(a));
+    animandoEstrelas=[];
+    filtroEstrelinhas.style.display='none';
+    filtroRosa.style.display='none';
+    if(tipo==='estrelinhas'){ filtroEstrelinhas.style.display='block'; criarEstrelasInfinitas(); }
+    if(tipo==='rosa') filtroRosa.style.display='block';
+}
+
+function criarEstrelasInfinitas(){
+    for(let i=0;i<15;i++){
+        const estrela = document.createElement('div');
+        estrela.className='estrela';
+        estrela.style.left = Math.random()*80 + '%';
+        estrela.style.top = Math.random()*60 + '%';
+        filtroEstrelinhas.appendChild(estrela);
+        animarEstrelaInfinitamente(estrela);
+    }
+}
+
+function animarEstrelaInfinitamente(el){
+    let velocidade = 0.3 + Math.random()*0.5;
+    function anim(){
+        let top = parseFloat(el.style.top);
+        top += velocidade;
+        if(top > 100) top = -10;
+        el.style.top = top + '%';
+        animandoEstrelas.push(requestAnimationFrame(anim));
+    }
+    anim();
+}
+
+function tirarFoto(){
+    const tempCanvas = document.createElement('canvas');
+    const ctx = tempCanvas.getContext('2d');
+    tempCanvas.width = video.videoWidth;
+    tempCanvas.height = video.videoHeight;
+    ctx.drawImage(video, 0, 0, tempCanvas.width, tempCanvas.height);
+    if(filtroRosa.style.display==='block'){ ctx.fillStyle='rgba(255,192,203,0.3)'; ctx.fillRect(0,0,tempCanvas.width,tempCanvas.height);}
+    if(filtroEstrelinhas.style.display==='block'){
+        filtroEstrelinhas.querySelectorAll('.estrela').forEach(s=>{
+            const rect = s.getBoundingClientRect();
+            const container = filtroEstrelinhas.getBoundingClientRect();
+            const x = (rect.left-container.left)/container.width*tempCanvas.width;
+            const y = (rect.top-container.top)/container.height*tempCanvas.height;
+            ctx.drawImage(createEstrelaIMG(), x, y, tempCanvas.width*0.08, tempCanvas.width*0.08);
+        });
+    }
+    const imagem = tempCanvas.toDataURL("image/png");
+    resultado.innerHTML=`
+        <div class="polaroid"><img src="${imagem}"></div>
+        <a href="${imagem}" download="polaroid.png">
+            <button class="camera-btn">Salvar Polaroid 💾</button>
+        </a>
+    `;
+}
+
+function createEstrelaIMG(){ const img = new Image(); img.src='estrela.png'; return img; }
+
+// ====================== PAINT ======================
+const canvasPaint = document.getElementById('canvasPaint');
+const ctxPaint = canvasPaint.getContext('2d');
+let corAtual='pink';
+
+function ajustarCanvas(){ canvasPaint.width=canvasPaint.clientWidth; canvasPaint.height=canvasPaint.clientHeight; }
+ajustarCanvas();
+window.addEventListener('resize',()=>{ ajustarCanvas(); posicionarAdesivos(); });
+
+let desenhando=false;
+canvasPaint.addEventListener('touchstart', e => { desenhando=true; const t=e.touches[0]; ctxPaint.beginPath(); ctxPaint.moveTo(t.clientX-canvasPaint.getBoundingClientRect().left,t.clientY-canvasPaint.getBoundingClientRect().top); });
+canvasPaint.addEventListener('touchmove', e => { if(!desenhando) return; const t=e.touches[0]; ctxPaint.lineTo(t.clientX-canvasPaint.getBoundingClientRect().left,t.clientY-canvasPaint.getBoundingClientRect().top); ctxPaint.strokeStyle=corAtual; ctxPaint.lineWidth=4; ctxPaint.lineCap='round'; ctxPaint.stroke(); });
+canvasPaint.addEventListener('touchend',()=>{ desenhando=false; });
+
+function limparCanvas(){ ctxPaint.clearRect(0,0,canvasPaint.width,canvasPaint.height); }
+function mudarCor(cor){ corAtual=cor; }
+
+// ====================== ADESIVOS ======================
+const adesivosContainer=document.getElementById('adesivos-container');
+const adesivos=['adesivo1.png','adesivo2.png','adesivo3.png','adesivo4.png'];
 
 function posicionarAdesivos(){
-    adesivosContainer.innerHTML = '';
-    const pad = 20;
-    const colunas = 2;
-    const linhas = 2;
-    const espaco = 70;
+    adesivosContainer.innerHTML='';
+    const pad=20; const colunas=2; const linhas=2; const espaco=70;
     adesivos.forEach((src,i)=>{
-        const img = document.createElement('img');
-        img.src = src;
-        img.className = 'adesivo';
-        const col = i%colunas;
-        const row = Math.floor(i/colunas);
+        const img=document.createElement('img');
+        img.src=src; img.className='adesivo';
+        const col=i%colunas; const row=Math.floor(i/colunas);
         img.style.left = canvasPaint.width/2 + pad + col*espaco + 'px';
         img.style.top = pad + row*espaco + 'px';
         adesivosContainer.appendChild(img);
 
         let offsetX=0, offsetY=0, movendo=false;
-
-        img.addEventListener('touchstart',e=>{
-            movendo=true;
-            offsetX = e.touches[0].clientX - img.offsetLeft;
-            offsetY = e.touches[0].clientY - img.offsetTop;
-        });
-        img.addEventListener('touchmove',e=>{
-            if(!movendo) return;
-            e.preventDefault();
-            let x = e.touches[0].clientX - offsetX;
-            let y = e.touches[0].clientY - offsetY;
-            x = Math.max(canvasPaint.width/2, x);
-            x = Math.min(canvasPaint.width - img.width, x);
-            y = Math.max(0, y);
-            y = Math.min(canvasPaint.height - img.height, y);
-            img.style.left = x + 'px';
-            img.style.top = y + 'px';
-        });
+        img.addEventListener('touchstart', e=>{ movendo=true; offsetX=e.touches[0].clientX-img.offsetLeft; offsetY=e.touches[0].clientY-img.offsetTop; });
+        img.addEventListener('touchmove', e=>{ if(!movendo) return; e.preventDefault(); let x=e.touches[0].clientX-offsetX; let y=e.touches[0].clientY-offsetY; x=Math.max(canvasPaint.width/2,x); x=Math.min(canvasPaint.width-img.width,x); y=Math.max(0,y); y=Math.min(canvasPaint.height-img.height,y); img.style.left=x+'px'; img.style.top=y+'px'; });
         img.addEventListener('touchend',()=>{ movendo=false; });
     });
 }
-window.addEventListener('load', ()=>{ajustarCanvas(); posicionarAdesivos();});
-window.addEventListener('resize', ()=>{ajustarCanvas(); posicionarAdesivos();});
 
-</script>
+window.addEventListener('load', ()=>{ posicionarAdesivos(); });
+
+// ====================== SPOTIFY POPUP ======================
+const spotifyBtn = document.getElementById('spotifyBtn');
+const spotifyPopup = document.getElementById('spotifyPopup');
+const closeBtn = document.getElementById('closeSpotifyPopup');
+
+spotifyBtn.addEventListener('click',()=>{ spotifyPopup.style.display='block'; });
+closeBtn.addEventListener('click',()=>{ spotifyPopup.style.display='none'; });
 <script>
-const eu = document.getElementById("eu");
-const ela = document.getElementById("ela");
+// ====== SHIMEJIS INTERATIVOS ======
+const eu = document.getElementById('eu');
+const ela = document.getElementById('ela');
+const abraco = document.getElementById('abraco');
 
-const largura = 90;
-const altura = 100;
-
-[eu, ela].forEach(p => {
-  p.style.position = "fixed";
-  p.style.width = largura + "px";
-  p.style.height = altura + "px";
-  p.style.zIndex = "9999";
-  p.style.cursor = "grab";
-  p.style.userSelect = "none";
-  p.style.touchAction = "none";
-  p.draggable = false;
-});
+const imagens = {
+    eu: {pe:'eu_pe.png', feliz:'eu_feliz.png', sentada:'eu_sentada.png'},
+    ela: {pe:'ela_pe.png', feliz:'ela_feliz.png', sentada:'ela_sentada.png'},
+    abracos:['abracando1.png','abracando2.png']
+};
 
 // posições iniciais
 let pos = {
-  eu: { x: 50, y: window.innerHeight - altura - 60 },
-  ela: { x: window.innerWidth - largura - 50, y: window.innerHeight - altura - 60 }
+    eu: {x:50, y:0},
+    ela: {x:300, y:0}
 };
 
-let estado = {
-  abracando: false,
-  sentadaEu: false,
-  sentadaEla: false,
-  arrastando: null,
-  passes: 0,
-  maxPasses: Math.random() < 0.5 ? 1 : 2,
-  podeContarPasse: true
-};
+// velocidade aleatória (px por tick)
+function novaVelocidade(){ return Math.random()*2 + 1; }
+let vel = { eu: novaVelocidade(), ela: novaVelocidade() };
 
-// ===== TIMER GLOBAL ABRAÇO =====
-let timerAbraco;
+// direção: 1 = direita, -1 = esquerda
+let dir = { eu:1, ela:-1 };
 
-// ===== DIREÇÃO ESTÁVEL (SEM TREMOR) =====
-let direcao = {
-  eu: { dx: 1, tempo: 0 },
-  ela: { dx: -1, tempo: 0 }
-};
+// indica se estão paradas (sentadas)
+let paradas = { eu:false, ela:false };
 
-function mover(nome, personagem) {
-  if (estado.abracando) return;
-  if (estado.arrastando === personagem) return;
-  if (estado[nome==="eu"?"sentadaEu":"sentadaEla"]) return;
+// indica se estão sendo arrastadas
+let arrastando = { eu:false, ela:false };
+let offset = { eu:{x:0,y:0}, ela:{x:0,y:0} };
 
-  if (direcao[nome].tempo <= 0) {
-    direcao[nome].dx = Math.random() < 0.5 ? 1 : -1;
-    direcao[nome].tempo = 80 + Math.random()*120; // mantém direção 1–3s
-  }
-
-  direcao[nome].tempo--;
-
-  pos[nome].x += direcao[nome].dx * 0.7;
-
-  // limites laterais
-  if (pos[nome].x < 5) {
-    pos[nome].x = 5;
-    direcao[nome].dx = 1;
-  }
-
-  if (pos[nome].x > window.innerWidth - largura - 5) {
-    pos[nome].x = window.innerWidth - largura - 5;
-    direcao[nome].dx = -1;
-  }
-
-  personagem.style.left = pos[nome].x + "px";
-  personagem.style.top = pos[nome].y + "px";
+// ====== MOVIMENTO ======
+function moverShimejis(){
+    ['eu','ela'].forEach(nome=>{
+        if(paradas[nome] || arrastando[nome]) return;
+        pos[nome].x += vel[nome]*dir[nome];
+        // colisão com borda
+        if(pos[nome].x <=0){ dir[nome]=1; pos[nome].x=0; }
+        if(pos[nome].x >= window.innerWidth-80){ dir[nome]=-1; pos[nome].x=window.innerWidth-80; }
+    });
+    atualizarPosicoes();
+    checarAbraco();
 }
 
-// ===== SENTAR =====
-function tentarSentar(nome, personagem) {
-  if (estado.abracando || estado.arrastando) return;
-  let chave = nome==="eu"?"sentadaEu":"sentadaEla";
-  if (estado[chave]) return;
-
-  if (Math.random() < 0.0015) {
-    estado[chave] = true;
-    personagem.src = nome+"_sentada.png";
-
-    setTimeout(()=>{
-      personagem.src = nome+"_pe.png";
-      estado[chave] = false;
-    },3000);
-  }
+// atualiza posições na tela
+function atualizarPosicoes(){
+    eu.style.left = pos.eu.x+'px';
+    ela.style.left = pos.ela.x+'px';
 }
 
-// ===== CONTAR PASSE CORRETAMENTE =====
-function checarPassagem() {
-  let distancia = Math.abs(pos.eu.x - pos.ela.x);
-
-  if (distancia < 40 && estado.podeContarPasse && !estado.abracando) {
-    estado.passes++;
-    estado.podeContarPasse = false;
-
-    setTimeout(()=>{
-      estado.podeContarPasse = true;
-    }, 800); // só pode contar de novo depois de se afastar
-  }
-}
-
-// ===== ABRAÇO AUTOMÁTICO =====
-function iniciarAbraco() {
-  if (estado.abracando) return;
-  estado.abracando = true;
-
-  let imgAbraco = Math.random() < 0.5 ? "abracando1.png" : "abracando2.png";
-
-  // fade e aumento de tamanho
-  eu.style.transition = "opacity 2s";
-  eu.style.opacity = 0;
-  eu.style.width = (largura * 1.2) + "px";
-  eu.style.height = (altura * 1.2) + "px";
-  ela.style.display = "none";
-
-  // fade in
-  setTimeout(() => {
-    eu.src = imgAbraco;
-    eu.style.opacity = 1;
-  }, 50);
-
-  // fade out após 4s de abraço
-  timerAbraco = setTimeout(() => {
-    eu.style.opacity = 0;
-
-    setTimeout(() => {
-      eu.src = "eu_pe.png";
-      ela.src = "ela_pe.png";
-      ela.style.display = "block";
-      eu.style.width = largura + "px";
-      eu.style.height = altura + "px";
-      eu.style.opacity = 1;
-      estado.abracando = false;
-      estado.passes = 0;
-      estado.maxPasses = Math.random() < 0.5 ? 1 : 2;
-    }, 2000);
-  }, 4000);
-}
-
-function verificarAbraço() {
-  if (estado.abracando) return;
-
-  if (estado.passes >= estado.maxPasses) {
-    iniciarAbraco();
-    estado.passes = 0;
-    estado.maxPasses = Math.random() < 0.5 ? 1 : 2;
-  }
-}
-
-// ===== LOOP =====
-function animar(){
-  mover("eu", eu);
-  mover("ela", ela);
-  tentarSentar("eu", eu);
-  tentarSentar("ela", ela);
-  checarPassagem();
-  verificarAbraço();
-  requestAnimationFrame(animar);
-}
-animar();
-
-// ===== DRAG FUNCIONANDO (MOUSE + TOQUE) =====
-function ativarDrag(personagem, nome){
-  let offsetX=0, offsetY=0;
-
-  function iniciar(e){
-    estado.arrastando = personagem;
-    let evento = e.touches ? e.touches[0] : e;
-    offsetX = evento.clientX - pos[nome].x;
-    offsetY = evento.clientY - pos[nome].y;
-  }
-
-  function moverDrag(e){
-    if(estado.arrastando !== personagem) return;
-    let evento = e.touches ? e.touches[0] : e;
-
-    pos[nome].x = evento.clientX - offsetX;
-    pos[nome].y = evento.clientY - offsetY;
-
-    personagem.style.left = pos[nome].x + "px";
-    personagem.style.top = pos[nome].y + "px";
-  }
-
-  function soltar(){
-    estado.arrastando = null;
-  }
-
-  personagem.addEventListener("mousedown", iniciar);
-  personagem.addEventListener("mousemove", moverDrag);
-  personagem.addEventListener("mouseup", soltar);
-
-  personagem.addEventListener("touchstart", iniciar);
-  personagem.addEventListener("touchmove", moverDrag);
-  personagem.addEventListener("touchend", soltar);
-}
-
-ativarDrag(eu,"eu");
-ativarDrag(ela,"ela");
-// ===== SPOTIFY =====
-const spotifyClientId = 'SEU_CLIENT_ID_DO_SPOTIFY'; // Coloque seu client ID do Spotify Developer
-const spotifyRedirectUri = window.location.href; // URL autorizada no app Spotify
-const spotifyScopes = 'user-read-currently-playing';
-
-// Quando o botão for clicado, redireciona para login do Spotify
-document.getElementById("spotifyBtn").addEventListener("click", ()=>{
-    const authUrl = `https://accounts.spotify.com/authorize?client_id=${spotifyClientId}&response_type=token&redirect_uri=${encodeURIComponent(spotifyRedirectUri)}&scope=${encodeURIComponent(spotifyScopes)}`;
-    window.location.href = authUrl;
-});
-
-// Checa se há token na URL
-window.addEventListener("load", () => {
-    const hash = window.location.hash;
-    if(hash){
-        const tokenMatch = hash.match(/access_token=([^&]*)/);
-        if(tokenMatch){
-            const token = tokenMatch[1];
-            mostrarMusicaAtual(token);
-        }
-    }
-});
-
-// Função para mostrar música atual em pop-up
-async function mostrarMusicaAtual(token) {
-    try {
-        const res = await fetch("https://api.spotify.com/v1/me/player/currently-playing", {
-            headers: { "Authorization": "Bearer " + token }
-        });
-
-        if(res.status === 204 || res.status === 202){
-            alert("Nenhuma música tocando no momento 🎵");
-            return;
-        }
-
-        const data = await res.json();
-        const nome = data.item.name;
-        const artista = data.item.artists.map(a => a.name).join(", ");
-        const album = data.item.album.name;
-        alert(`🎵 Música atual:\n${nome}\nArtista(s): ${artista}\nÁlbum: ${album}`);
-    } catch(err) {
-        console.error(err);
-        alert("Erro ao buscar música 😅");
+// ====== ABRAÇO ======
+function checarAbraco(){
+    const distancia = Math.abs(pos.eu.x - pos.ela.x);
+    if(distancia<50 && abraco.style.display==='none'){
+        eu.style.display='none';
+        ela.style.display='none';
+        abraco.src = imagens.abracos[Math.floor(Math.random()*imagens.abracos.length)];
+        abraco.style.left = ((pos.eu.x+pos.ela.x)/2)+'px';
+        abraco.style.top = 'calc(100% - 100px)';
+        abraco.style.display='block';
+        setTimeout(()=>{
+            abraco.style.display='none';
+            eu.style.display='block';
+            ela.style.display='block';
+            // reposicionar aleatoriamente se não estiver arrastando
+            if(!arrastando.eu) pos.eu.x = Math.random()*(window.innerWidth-80);
+            if(!arrastando.ela) pos.ela.x = Math.random()*(window.innerWidth-80);
+            dir.eu = Math.random()>0.5?1:-1;
+            dir.ela = Math.random()>0.5?1:-1;
+            eu.src = imagens.eu.pe;
+            ela.src = imagens.ela.pe;
+        },3000);
     }
 }
+
+// ====== SENTAR ALEATÓRIO ======
+function mudarAleatorio(){
+    if(!paradas.eu && Math.random()<0.01){
+        paradas.eu=true;
+        eu.src = imagens.eu.sentada;
+        eu.style.animation='none';
+        setTimeout(()=>{
+            paradas.eu=false;
+            eu.src = imagens.eu.pe;
+            eu.style.animation='flutuarShimeji 3s ease-in-out infinite';
+        },3000);
+    }
+    if(!paradas.ela && Math.random()<0.01){
+        paradas.ela=true;
+        ela.src = imagens.ela.sentada;
+        ela.style.animation='none';
+        setTimeout(()=>{
+            paradas.ela=false;
+            ela.src = imagens.ela.pe;
+            ela.style.animation='flutuarShimeji 3s ease-in-out infinite';
+        },3000);
+    }
+}
+
+// ====== CLIQUE FELIZ ======
+eu.addEventListener('click', ()=>{ eu.src=imagens.eu.feliz; setTimeout(()=>{ eu.src=imagens.eu.pe },1500); });
+ela.addEventListener('click', ()=>{ ela.src=imagens.ela.feliz; setTimeout(()=>{ ela.src=imagens.ela.pe },1500); });
+
+// ====== ARRASTAR ======
+function tornarArrastavel(shimeji, nome){
+    // touch
+    shimeji.addEventListener('touchstart', e=>{
+        arrastando[nome]=true;
+        offset[nome].x = e.touches[0].clientX - shimeji.offsetLeft;
+        offset[nome].y = e.touches[0].clientY - shimeji.offsetTop;
+        shimeji.style.animation='none';
+    });
+    shimeji.addEventListener('touchmove', e=>{
+        if(!arrastando[nome]) return;
+        e.preventDefault();
+        let x = e.touches[0].clientX - offset[nome].x;
+        let y = e.touches[0].clientY - offset[nome].y;
+        x = Math.max(0, Math.min(window.innerWidth-80, x));
+        y = Math.max(0, Math.min(window.innerHeight-100, y));
+        pos[nome].x = x;
+        pos[nome].y = y;
+        atualizarPosicoes();
+        checarAbraco();
+    });
+    shimeji.addEventListener('touchend', ()=>{ arrastando[nome]=false; shimeji.style.animation='flutuarShimeji 3s ease-in-out infinite'; });
+
+    // mouse
+    shimeji.addEventListener('mousedown', e=>{
+        arrastando[nome]=true;
+        offset[nome].x = e.clientX - shimeji.offsetLeft;
+        offset[nome].y = e.clientY - shimeji.offsetTop;
+        shimeji.style.animation='none';
+    });
+}
+window.addEventListener('mousemove', e=>{
+    ['eu','ela'].forEach(nome=>{
+        if(!arrastando[nome]) return;
+        let x = e.clientX - offset[nome].x;
+        let y = e.clientY - offset[nome].y;
+        x = Math.max(0, Math.min(window.innerWidth-80, x));
+        y = Math.max(0, Math.min(window.innerHeight-100, y));
+        pos[nome].x = x;
+        pos[nome].y = y;
+        atualizarPosicoes();
+        checarAbraco();
+    });
+});
+window.addEventListener('mouseup', ()=>{
+    ['eu','ela'].forEach(nome=>{
+        if(arrastando[nome]){
+            arrastando[nome]=false;
+            document.getElementById(nome).style.animation='flutuarShimeji 3s ease-in-out infinite';
+        }
+    });
+});
+
+// aplicar arrastável
+tornarArrastavel(eu,'eu');
+tornarArrastavel(ela,'ela');
+
+// ====== LOOP PRINCIPAL ======
+setInterval(()=>{
+    moverShimejis();
+    mudarAleatorio();
+}, 50); // movimentação suave
+
 </script>
-<!-- AVISO SPOTIFY -->
-<div id="spotifyBox" style="
-    position:fixed;
-    top:50%; left:50%;
-    transform:translate(-50%,-50%);
-    background:#ff9ec4cc;
-    border:4px solid #c26a8c;
-    border-radius:25px;
-    padding:30px;
-    text-align:center;
-    z-index:10000;
-    box-shadow:0 5px 20px rgba(0,0,0,0.3);
-    font-family:'Poppins', sans-serif;
-">
-    <h2 style="font-family:'Great Vibes', cursive; color:white;">Conectar com Spotify 💖</h2>
-    <p style="color:white;">Permita que este site acesse sua conta do Spotify de forma privada e individual.</p>
-    <button id="spotifyLoginBtn" style="
-        background:white; 
-        color:#c26a8c; 
-        border:none; 
-        padding:10px 20px; 
-        border-radius:20px; 
-        font-weight:bold;
-        cursor:pointer;
-        box-shadow:0 3px 0 #a05273;
-    ">Conectar 🎵</button>
-    <br><br>
-    <button id="spotifyCloseBtn" style="
-        background:#c26a8c;
-        color:white;
-        border:none;
-        padding:8px 15px;
-        border-radius:15px;
-        font-weight:bold;
-        cursor:pointer;
-    ">Cancelar ❌</button>
-</div>
 </body>
 </html>
